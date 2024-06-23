@@ -55,15 +55,21 @@ h4 + div {
 }
 
 .content-wrapper > div:not(.custom) table {
-    @apply bg-primary-medium text-font-light;
+    @apply bg-primary-medium text-font-light mx-auto my-8;
+    border: 1.5px solid;
+    background-color: #dfffc9;
+    color: black;
 }
 
 .content-wrapper > div:not(.custom) table thead {
     @apply sm:text-2xl text-lg uppercase;
+    background-color: #285a06; 
+    color: white;
 }
 
 .content-wrapper > div:not(.custom) table tbody tr td {
     @apply p-4;
+    border: 1.5px solid;
 }
 
 .content-wrapper > div:not(.custom) table tbody tr td:first-child {
@@ -76,10 +82,7 @@ h4 + div {
 
 .content-wrapper > div:not(.custom) table thead tr th {
     @apply p-6 text-left font-normal;
-}
-
-.content-wrapper > div:not(.custom) table tbody tr:last-child td {
-    @apply pb-12;
+    border: 1.5px solid;
 }
 
 .content-wrapper > div:not(.custom) ul {
