@@ -1,8 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./wiki/**/*.html"
-  ],
+  content: {
+    files: ["./wiki/**/*.html"],
+    extract: {
+      html: (content) => {
+        let matches = content.match(/[^<>"'`\s]*/g);
+        matches = matches.map(match => {
+          if (match.startsWith("scroll:") || match.startsWith("-scroll:")) {
+            return match.substring(match.indexOf(":") + 1);
+          } else {
+            return match;
+          }
+        });
+
+        return matches;
+      },
+    }
+  },
   theme: {
     extend: {
       screens: {
