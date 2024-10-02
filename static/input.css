@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 p {
-    @apply text-base text-justify hyphens-auto font-inter mb-4;
+    @apply text-base text-justify hyphens-auto font-inter mb-3;
 }
 
 li {
@@ -109,4 +109,8 @@ table.entrepreneurship tr:nth-child(even) {
 
 table.entrepreneurship td, table.entrepreneurship th {
     @apply pl-4 pr-12 py-2;
+}
+
+code { 
+    @apply block bg-accent-light-purple p-4 mb-4
 }

@@ -6,25 +6,23 @@
 
 <div>
     <p>
-        Plasmid.ai is the largest open-source toolkit for developing plasmid foundation models. Created by the iGEM Toronto team, this project aims to revolutionize the field of synthetic biology by leveraging machine learning to generate novel plasmids.
+        Plasmid.AI is the largest open-source toolkit for developing plasmid foundation models. Created by the iGEM Toronto team, this project aims to revolutionize the field of synthetic biology by leveraging machine learning to generate novel plasmids.
     </p>
 </div>
 
 {{ subheading("Overview") }}
 <div>
     <p>
-        Plasmid.ai provides a comprehensive set of tools and models for the analysis, design, and generation of plasmids. By utilizing state-of-the-art machine learning techniques, this project enables researchers and synthetic biologists to explore new possibilities in plasmid engineering and design.
+        Plasmid.AI provides a comprehensive set of tools and models for the analysis, design, and generation of plasmids. By utilizing state-of-the-art machine learning techniques, this project enables researchers and synthetic biologists to explore new possibilities in plasmid engineering and design.
     </p>
 </div>
 
 {{ subheading("Installation") }}
 <div>
-    <p>To install Plasmid.ai, you can either use pip or clone the repository for development access.</p>
-    <h4>Using pip</h4>
+    <p>To install Plasmid.AI, you can either use pip or clone the repository for development access.</p>
+    <p><b>From pip.</b></p>
     <pre><code>pip install plasmidai</code></pre>
-    <br>
-    <h4>Using git</h4>
-    <p>For development or to access the latest features, you can clone the repository:</p>
+    <p><b>From source.</b> For development or to access the latest features, you can clone the repository:</p>
     <pre><code>git clone https://github.com/igem-toronto/plasmidai.git
 cd plasmidai
 pip install -e .
@@ -34,28 +32,21 @@ pip install -e .
 {{ subheading("Repository Structure") }}
 <div>
     <p>
-        The Plasmid.ai project is organized into several key components, as outlined below:
+        The Plasmid.AI project is organized into several key components, as outlined below:
     </p>
-    <ul>
-        <li><strong>data/</strong>: Contains datasets and scripts for data processing.
-            <ul>
-                <li><strong>scripts/</strong>: Helper scripts for data manipulation.</li>
-                <li><strong>tokenizers/</strong>: Custom tokenizers for plasmid sequences.</li>
-            </ul>
-        </li>
-        <li><strong>datasets/</strong>: Modules for loading and preprocessing plasmid datasets.</li>
-        <li><strong>experimental/</strong>: Cutting-edge features and models in development.
-            <ul>
-                <li><strong>callbacks.py</strong>: Custom callbacks for model training.</li>
-                <li><strong>lit.py</strong>: Lightning modules for PyTorch Lightning integration.</li>
-                <li><strong>optimizers.py</strong>: Custom optimizers for training plasmid models.</li>
-                <li><strong>sample.py</strong>: Functions for sampling from trained models.</li>
-                <li><strong>train.py</strong>: Training pipelines for plasmid models.</li>
-            </ul>
-        </li>
-        <li><strong>utils.py</strong>: Utility functions used across the project.</li>
-        <li><strong>paths.py</strong>: Path configurations for the project.</li>
-    </ul>
+<pre><code>data/               Contains datasets and scripts for data processing
+    scripts/        Helper scripts for data manipulation
+    tokenizers/     Custom tokenizers for plasmid sequences
+datasets/:          Modules for loading and preprocessing plasmid datasets
+experimental/:      Cutting-edge features and models in development
+    callbacks.py:   Custom callbacks for model training
+    lit.py:         Lightning modules for PyTorch Lightning integration
+    optimizers.py:  Custom optimizers for training plasmid models
+    sample.py:      Functions for sampling from trained models
+    train.py:       Training pipelines for plasmid models
+utils.py:           Utility functions used across the project
+paths.py:           Path configurations for the project
+</code></pre>
     <p>
         This structure represents a clear development pipeline that facilitates data processing, training, and refining of plasmid models.
     </p>
@@ -63,9 +54,8 @@ pip install -e .
 
 {{ subheading("Repository Setup") }}
 <div>
-    <p>The Plasmid.ai GitHub repository can be found at <a href="https://github.com/igem-toronto/plasmidai">(plasmidai)</a>.</p>
-    <p>
-        Our iGEM GitLab submission (containing the same files) can be found at: <a href="https://gitlab.igem.org/2024/software-tools/utoronto">(plasmidai)</a>
+    <p>The Plasmid.AI repository can be found at <a href="https://github.com/igem-toronto/plasmidai">GitHub</a>, or the 
+       <a href="https://gitlab.igem.org/2024/software-tools/utoronto">iGEM GitLab</a> for the purposes of our submission.
     </p>
     <p>
         To clone the repository:
@@ -87,14 +77,14 @@ mv 240212_plasmid_seq_54646.fasta plasmids.fasta</code></pre>
 {{ subheading("Contributing") }}
 <div>
     <p>
-        We welcome contributions from the community! If you would like to contribute, please check out the repository on <a href="https://github.com/igem-toronto/plasmidai">(GitHub)</a> and follow the contributing guidelines.
+        We welcome contributions from the community! If you would like to contribute, please check out the repository on <a href="https://github.com/igem-toronto/plasmidai">GitHub</a> and follow the contributing guidelines.
     </p>
 </div>
 
 {{ subheading("License") }}
 <div>
     <p>
-        Plasmid.ai is licensed under the MIT License. For more details, please refer to the <a href="https://github.com/igem-toronto/plasmidai/blob/main/LICENSE">(license file)</a> in the repository.
+        Plasmid.AI is licensed under the <a href="https://github.com/igem-toronto/plasmidai/blob/main/LICENSE">MIT License</a>.
     </p>
 </div>
 
