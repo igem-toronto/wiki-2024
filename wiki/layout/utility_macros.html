@@ -2,7 +2,7 @@
   {{ set_page(text) }}
   {% if show %}
     <div class="inline-block mb-4">
-      <h1 class="font-bold font-roboto mb-4">{{ text }}</h1>
+      <h1 class="font-bold font-roboto mb-4">{{ text|safe }}</h1>
       <hr class="h-1 border-none bg-accent-saturated-purple mb-1 -mr-8">
       <hr class="h-1 w-8/12 border-none bg-accent-muted-purple">
     </div>
@@ -13,13 +13,13 @@
   {{ ensure_subpage() }}
   {{
     subpages[-1].subheadings.append({
-      "text": text,
-      "key": subpages[-1].key + "-" + text.lower().replace(" ", "-"),
+      "text": text.replace("<i>", "").replace("</i>", ""),
+      "key": subpages[-1].key + "-" + text.lower().replace(" ", "-").replace("<i>", "").replace("</i>", ""),
       "subsubheadings": []
     })
   }}
 	<h2 id="{{ subpages[-1].subheadings[-1].key }}" class="mt-8 mb-4">
-    {{text}}
+    {{text|safe}}
 	</h2>
 {%- endmacro %}
 
