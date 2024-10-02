@@ -34,7 +34,7 @@
         recent years, we still lack a robust model to account for complex plasmid architecture.
     </p>
     <p>
-        Existing machine learning models, such as Evo, have demonstrated the potential for modelling and predicting
+        Existing machine learning models, such as HyenaDNA and Evo, have demonstrated the potential for modelling and predicting
         biological sequences {{ cite('Nguyen,nguyen2023hyenadna') }}. This
         approach has been useful in identifying novel sequences with desired traits.
         However, these models often face limitations when tasked with producing plasmid sequences that need to fulfill
@@ -101,7 +101,7 @@
         Most recent genomics modelling approaches adopt deep sequence models, which have seen success in natural
         language processing (NLP). Each nucleotide in a DNA sequence is considered as a token, analogous to a word
         in a sentence in the NLP context. This means that sequences can be extremely long. In our datasets, even the shorter plasmids can be
-        2-10K base pairs long. This presents a computational challenge for modern deep learning models, and
+        2-10K base pairs (bp) long. This presents a computational challenge for modern deep learning models, and
         some ingenuity is required to overcome this obstacle.
     </p>
     <p>
@@ -232,11 +232,9 @@
 
     </p>
     <p>
-        <strong>Class A vs Class B plasmids – Classification Pipeline Overview and Results. </strong>
+        <strong>Class A vs Class B plasmids – classification pipeline overview and results. </strong>
         Theta-replicating plasmids can be classified based on their replication initiation mechanisms. Of the many
         existing classes, this project mostly concerns Class A and Class B plasmids {{ cite('Lilly_Camps_2015')}}.
-    </p>
-    <p>
         Class A theta plasmids rely on plasmid-encoded Replication proteins (Rep proteins) to initiate replication
         {{ cite('Lilly_Camps_2015') }}.
         The replication of Class A plasmids is complex and rep proteins are not well documented. In contrast, Class B
@@ -308,7 +306,7 @@
     <p>
         Typically, protein sequences are detected and validated in silico by comparing the distribution of generated
         sequences to natural controls using alignment-derived scores. We experimented with commonly used homology search
-        techniques such as BLAST and MmSeq2 against the 2023 Comprehensive Antibiotic Resistance Database (CARD)
+        techniques such as BLAST and MmSeq2 against the 2023 Comprehensive Antibiotic Resistance Database
         {{cite('Alcock2022') }} to search for antimicrobial resistance proteins (AMR). However, there were two problems with this approach. First,
         the homology alignment did not take into account the issue of overfitting commonly seen in generative models, in
         which the model produces sequences that mimic too closely those seen in the training set. Second, the relatively
@@ -320,7 +318,7 @@
     <p>
         To address this issue, we used alignment-based techniques with significantly more relaxed thresholds and on a
         more diverse family of proteins to identify potential sequences as testing samples. First, in terms of
-        threshold, a lower percentage of coverage to a reference length of 20% is applied, and the selected ORFs are
+        threshold, a lower percentage of coverage to a reference length of 20% is applied, and the selected open reading frames (ORFs) are
         extended by a flanking sequence of 100 bp length along the 5’ direction of the coding sequence. The cutoff of
         20% was chosen to benchmark our model against a current state-of-the-art large language protein generation
         model, ProGen, as it is the lowest percentage sequence identity of ProGen’s generated proteins
@@ -352,7 +350,7 @@
     <p>
         An end-to-end preliminary implementation of the protein validation pipeline with the outlined metrics is
         included in our released software package. Given a collection of generated DNA sequences, the pipeline performs
-        high-throughput sequencing, protein annotation and 3-D structure prediction. Upon completion, the program
+        high-throughput sequencing, protein annotation, and 3D structure prediction. Upon completion, the program
         returns the predicted protein’s DNA and amino acid sequences, associated scores and visualization for evaluation
         purposes.
 
@@ -460,7 +458,7 @@
     <p>
         For the third batch, we focused on exploring the model's capability to generate plasmids with specific,
         user-defined characteristics. As an initial experiment in this direction, we attempted to condition the model to
-        produce plasmids with a target length of approximately 2048 base pairs. We also further refined our training
+        produce plasmids with a target length of approximately 2048 bp. We also further refined our training
         dataset and fine-tuning stage using results of the wet lab experiments.
     </p>
     <div style="display: flex; justify-content: center; width: 100%;">
@@ -480,9 +478,7 @@
     </div>
     <p>
         We identified even more putative plasmid clusters than for Batch 2. Furthermore, the local alignment analysis
-        showed identified many more matches with known relaxase and rep proteins:
-    </p>
-    <p>
+        showed identified many more matches with known relaxase and rep proteins: 
         9 oris were selected for experimental validation. These oris have not been fully tested in vitro yet.
     </p>
 </div>
@@ -491,7 +487,7 @@
 <div>
     <p>
         Most of the DNA sequences from batch 3 that align with the AMR database are too short to form a viable
-        protein (less than 300mAA) when blasted for ORFs for amino acid sequence translation. Out of a batch of 10000
+        protein (less than 300mAA) when blasted for ORFs for amino acid sequence translation. Out of a batch of 10,000
         sequences, 140 DNA sequences were found to have aligned with the AMRFinderPlus database above the minimum 20%
         coverage to reference sequences, and only 6 translated amino acid sequences were predicted to form viable 3D
         protein structures.
@@ -635,10 +631,10 @@
     <div>
         <p>
             The scarcity and complexity of plasmid sequence data present significant challenges for machine learning models
-            like our Mamba2. Plasmids are typically long sequences, but relatively few have been fully sequenced, resulting
+            like ours. Plasmids are typically long sequences, but relatively few have been fully sequenced, resulting
             in a limited dataset for training. Moreover, their modular nature, consisting of various functional elements
             combined in different ways, further complicates the learning process. To address these limitations, we
-            implemented several data augmentation techniques. We employed random circular permutations to simulate the
+            implemented several data augmentation techniques. We employed random circular permutations to leverage the
             circular nature of plasmids and to increase sequence diversity. Additionally, we included sub plasmid sequences
             of varying lengths, effectively breaking down the complex structures into more manageable segments. These
             strategies not only expanded our training dataset but also helped our model better capture the modular and
@@ -657,11 +653,11 @@
             compare them against known binding site databases to identify potential binding sites; however, this requires
             supplying a sequence of known binding site motifs. Currently, we are unable to find a database of replication
             protein binding motifs. To overcome this limitation, in the current pipeline, we prioritize features that are
-            more likely to be conserved, such as RNA II molecules, AT-rich regions, etc.
+            more likely to be conserved, such as RNA II molecules and AT-rich regions.
     
         </p>
     </div>
-    {{ subsubsubheading("Complex ori Machinery") }}
+    {{ subsubsubheading("Complex Ori Machinery") }}
     <div>
         <p>
             The ori is an intricate and interdependent network of smaller, essential components, all of which must be both
