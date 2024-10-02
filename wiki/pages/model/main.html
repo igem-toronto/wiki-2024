@@ -105,13 +105,22 @@
         some ingenuity is required to overcome this obstacle.
     </p>
     <p>
-        We use a sophisticated tokenization strategy called Byte Pair Encoding (BPE) trained on our dataset of plasmid
-        sequences, inspired by the success of DNABERT-2 {{ cite('zhou2024dnabert')}}. This tokenizer identifies and
+        We adopt a tokenization strategy called SentencePiece {{cite('sentencepiece')}} with
+        Byte Pair Encoding (BPE) {{cite('sennrich-etal-2016-neural')}} trained on our dataset of plasmid sequences, 
+        inspired by the success of DNABERT-2 {{ cite('zhou2024dnabert')}}. This tokenizer identifies and
         encodes frequently occurring
         subsequences, effectively compressing repetitive DNA patterns common in plasmids. After tokenizing a raw
-        nucleotide sequence, each token represents a short nucleotide sequence (e.g., AAT) in the tokenizer’s dictionary.
+        nucleotide sequence, each token represents a short k-mer (e.g., AAT) in the tokenizer’s dictionary.
         The use of BPE is crucial for managing long plasmids within computational constraints, allowing us to fit
-        plasmid sequences up to 4x longer in the same context length.
+        plasmid sequences up to 4x longer in the same context length. 
+    </p>
+    <p>
+        In early experiments, we also found that 
+        nucleotide-level tokenization produced models that tended to collapse to generating mononucleotide repeats
+        during sampling. We note that this pathology is well-known in NLP and one strategy to mitigating it is to apply a 
+        repetition penalty that discourages the model from repeating tokens. However, this strategy seems ill-suited 
+        to the domain of genomics, where repetition is ubiqitous and important in DNA. Fortunately, this behaviour
+        was not observed when using BPE tokenization.
     </p>
 </div>
 
@@ -306,7 +315,7 @@
     <p>
         Typically, protein sequences are detected and validated in silico by comparing the distribution of generated
         sequences to natural controls using alignment-derived scores. We experimented with commonly used homology search
-        techniques such as BLAST and MmSeq2 against the 2023 Comprehensive Antibiotic Resistance Database
+        techniques such as BLAST and MMseqs2 against the 2023 Comprehensive Antibiotic Resistance Database
         {{cite('Alcock2022') }} to search for antimicrobial resistance proteins (AMR). However, there were two problems with this approach. First,
         the homology alignment did not take into account the issue of overfitting commonly seen in generative models, in
         which the model produces sequences that mimic too closely those seen in the training set. Second, the relatively
