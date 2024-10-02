@@ -68,7 +68,7 @@ ul:not(.custom) {
 }
 
 ol:not(.custom) {
-    @apply list-decimal list-outside pl-8 mb-4
+    @apply list-decimal list-outside pl-8
 }
 
 .content-wrapper > .image {
