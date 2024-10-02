@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 p {
-    @apply text-base text-justify hyphens-auto font-inter mb-3;
+    @apply text-base md:text-justify hyphens-auto font-inter mb-3;
 }
 
 li {
-    @apply text-base text-justify hyphens-auto font-inter;
+    @apply text-base md:text-justify hyphens-auto font-inter;
 }
 
 
