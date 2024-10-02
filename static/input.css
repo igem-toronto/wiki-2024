@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 p {
-    @apply text-base text-justify hyphens-auto font-inter my-2;
+    @apply text-base text-justify hyphens-auto font-inter mb-4;
 }
 
 li {
@@ -20,7 +20,7 @@ h1 {
 }
 
 h2 {
-    @apply text-3xl lg:text-4xl font-roboto font-bold mb-2;
+    @apply text-3xl lg:text-4xl font-roboto font-bold;
 }
 
 h3 {
@@ -28,31 +28,7 @@ h3 {
 }
 
 h4 {
-    @apply underline-offset-4 underline text-base font-roboto;
-}
-
-div + h2 {
-    @apply mt-12;
-}
-
-div + h3 {
-    @apply mt-8;
-}
-
-h1 + div {
-    @apply mt-2 mb-4
-}
-
-h2 + div {
-    @apply mt-2 mb-4
-}
-
-h3 + div {
-    @apply mt-2 mb-4
-}
-
-h4 + div {
-    @apply mt-2 mb-4
+    @apply text-lg font-bold font-roboto;
 }
 
 .rotate-y-180 {
@@ -92,7 +68,7 @@ ul:not(.custom) {
 }
 
 ol:not(.custom) {
-    @apply list-decimal list-outside pl-8
+    @apply list-decimal list-outside pl-8 mb-4
 }
 
 .content-wrapper > .image {

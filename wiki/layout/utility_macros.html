@@ -9,7 +9,7 @@
   {% endif %}
 {%- endmacro %}
 
-{% macro subheading(text, img="") -%}
+{% macro subheading(text) -%}
   {{ ensure_subpage() }}
   {{
     subpages[-1].subheadings.append({
@@ -18,16 +18,8 @@
       "subsubheadings": []
     })
   }}
-	<h2 id="{{ subpages[-1].subheadings[-1].key }}"
-      class="flex items-center w-full">
-    <div class="{{ 'w-1/2' if img != '' else '' }} mb-3">
-      {{text}}
-    </div>
-    {% if img != '' %}
-      <div class="justify-center w-1/2 hidden lg:block">
-        <img src="{{ img }}" alt="{{ text }}" class="w-1/2">
-      </div>
-    {% endif %}
+	<h2 id="{{ subpages[-1].subheadings[-1].key }}" class="mt-8 mb-4">
+    {{text}}
 	</h2>
 {%- endmacro %}
 
@@ -37,13 +29,13 @@
       "key": subpages[-1].subheadings[-1].key + "-" + text.lower().replace(" ", "-")
     })
   }}
-	<h3 id="{{ subpages[-1].subheadings[-1].subsubheadings[-1].key }}" class="mb-3">
+	<h3 id="{{ subpages[-1].subheadings[-1].subsubheadings[-1].key }}" class="mt-6 mb-3">
 		{{text}}
 	</h3>
 {%- endmacro %}
 
 {% macro subsubsubheading(text) -%}
-	<h4 class="mb-3">
+	<h4 class="mt-6 mb-3">
 		{{text}}
 	</h4>
 {%- endmacro %}
