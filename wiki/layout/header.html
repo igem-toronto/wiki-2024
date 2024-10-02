@@ -2,7 +2,7 @@
   <div class="hover:text-accent-muted-purple ease-in duration-100
               text-md
               xl:py-0 xl:px-10
-              text-left py-2 flex items-center font-roboto">
+              text-left py-2 flex items-center font-roboto-mono">
     <a href="{{ url_for('pages', page=target + '.html') }}" class="hover:text-accent-muted-purple text-white">{{ text }}</a>
   </div>
 {%- endmacro %}
@@ -16,9 +16,9 @@
       class=" cursor-pointer relative text-left py-2 flex xl:items-center
               xl:py-0 xl:flex-row
               flex-col
-              font-roboto">
+              font-roboto-mono">
     <div class="
-                xl:px-10
+                xl:px-14
               hover:text-accent-muted-purple ease-in duration-100 xl:text-center text-left text-md">
       {{ text }}
     </div>
@@ -128,7 +128,7 @@
             }"
       x-cloak>
   <template x-for="(sub, index) in subpages">
-    <li class=" text-base list-none cursor-pointer border-b-2 border-transparent hover:text-white duration-200"
+    <li class="text-left xl:text-center text-base list-none cursor-pointer border-b-2 border-transparent hover:text-white duration-200"
         x-text="sub.heading"
         @click="selectSubpage(index); subpageSelectorExtended = false"
         :class="{ 'text-white xl:border-white': selectedSubpage === index,
