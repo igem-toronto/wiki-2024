@@ -1,7 +1,400 @@
 {% extends "layout/subpage.html" %}
 
 {% block article_content %}
-  {{ subpage_banner() }}
-  Text
+  {{ heading("Regulatory Framework") }}
+  {{ subheading("Introduction") }}
+  <div>
+    <p>
+      The rapid advancement of synthetic biology and artificial intelligence (AI) compels us to establish a robust regulatory framework to assess the associated risks of these converging technologies. Recognizing the complexity of this task, we initially conducted extensive research on various regulatory approaches. However, after a thoughtful consultation with Bioethics Professor Dr. Jonathan Herrington, we found our focus solidified and were encouraged to adopt the comprehensive framework outlined in the paper "<i>Risk Assessments for Converging Technologies</i>" [1]. This framework deftly synthesizes elements from the AAAS-FBI-UNICRI, NASEM, and Tucker frameworks, providing us with a versatile tool for evaluating the risks that arise from technological convergence [1]. Dr. Herrington’s insights were invaluable, reinforcing our belief in the importance of a holistic assessment in this rapidly evolving landscape.
+    </p>
+  </div>
+
+  {{ subheading("Challenges in Assessing Emerging and Converging Risks") }}
+  <div>
+    <p>
+      Assessing risks associated with converging technologies is inherently challenging due to the intricate interplay between various domains. Traditional risk assessment frameworks often focus narrowly on specific technologies or scenarios, which can limit their applicability to emerging risks. In contrast, a more generalized framework allows for comparative analysis across different technologies, aiding decision-makers in prioritizing risks effectively [1].
+    </p>
+    <p>
+      These complexities are compounded when we consider the uncertainties of technological convergence. Each component—be it AI or biotechnology—presents distinct yet interconnected risks. For instance, concentrating solely on the biological aspects of cloud laboratories may obscure vulnerabilities inherent in the underlying AI infrastructure. Moreover, the scarcity of data and the challenges of quantifying emerging risks further complicate our assessments [1].
+    </p>
+  </div>
+
+  {{ subheading("Overview of the Chosen Frameworks") }}
+  <div>
+    <p>
+      The framework we have adopted integrates the strengths of three previously established approaches, offering a comprehensive lens through which we can evaluate risks associated with Plasmid AI:
+    </p>
+  </div>
+
+  {{ subsubheading("AAAS-FBI-UNICRI Framework") }}
+  <div>
+    <p>
+      This framework emphasizes the inclusion of multidisciplinary experts, which facilitates a nuanced evaluation of risks associated with big data in the life sciences. However, its specific focus on big data may limit its applicability to other converging technologies [1].
+    </p>
+  </div>
+
+  {{ subsubheading("NASEM Framework") }}
+  <div>
+    <p>
+      This framework recognizes the synergy between technologies and assesses the level of concern regarding the capabilities of synthetic biology and its potential applications for harm. Despite its strengths, its specificity to synthetic biology may pose challenges when considering the broader implications of AI and biotechnology convergence [1].
+    </p>
+  </div>
+
+  {{ subsubheading("Tucker Framework") }}
+  <div>
+    <p>
+      This framework incorporates a governability assessment, highlighting the relationship between risk and governance. It emphasizes that technologies with lower governability are more susceptible to misuse. However, its reliance on a limited ordinal scale may result in a loss of granularity in risk categorization [1].
+    </p>
+  </div>
+
+  <div>
+    <p>
+      By combining these frameworks, our adapted approach facilitates a more comprehensive understanding of the risks associated with Plasmid AI.
+    </p>
+  </div>
+
+  {{ subheading("Stakeholder Engagement and Transparency") }}
+  <div>
+    <p>
+      In response to valuable insights from our stakeholders, we are committed to ensuring that all our decision-making processes remain transparent. Stakeholders expressed a strong desire for clarity in how decisions are made regarding the development and deployment of Plasmid AI technologies. By integrating their feedback, we will implement the following measures:
+    </p>
+    <ol>
+      <li>
+        Documentation of Decisions: All significant decisions will be documented and made available upon request. Interested parties can reach out to our team to review the rationale behind our actions.
+      </li>
+      <li>
+        Stakeholder Feedback Mechanisms: Our Continuous Monitoring section within our stakeholder framework will be made mandatory if a stakeholder expresses any form of concern regarding our project. By doing so, we can assess whether their concerns have been adequately addressed, and, if necessary, explore ways to find a middle ground. This approach not only fosters accountability but also encourages collaboration in addressing any evolving concerns.
+      </li>
+      <li>
+        Incorporation of Diverse Perspectives: We recognize the importance of incorporating diverse perspectives in our decision-making. We will actively seek input from various stakeholder groups to ensure that our approaches are well-rounded and considerate of different viewpoints.
+      </li>
+    </ol>
+    <p>
+      By embedding transparency into our regulatory framework, we aim to build trust and foster collaboration among all stakeholders involved in the Plasmid AI project.
+    </p>
+  </div>
+
+  {{ subheading("Convergent Risk Scenarios") }}
+  <div>
+    <p>
+      To illustrate the application of the adapted framework, we present several convergent risk scenarios related to Plasmid AI:
+    </p>
+  </div>
+
+  {{ subsubheading("In Silico Design of a Pathogen Risk Assessment") }}
+  <div>
+    <table class="entrepreneurship">
+      <thead>
+        <tr>
+          <th>
+            Criterion
+          </th>
+          <th>
+            Assessment
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Probability
+          </td>
+          <td>
+            Moderate
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Adversary
+          </td>
+          <td>
+            Adversary	Nation-state, nonstate group, or individual
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Timeline
+          </td>
+          <td>
+            Timeline	Near term (0 to 5 years)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Democratization
+          </td>
+          <td>
+            Moderate
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Vulnerabilities
+          </td>
+          <td>
+            Confidentiality Breaches, Unauthorized Access, Data Manipulation
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Needed Expertise
+          </td>
+          <td>
+            Needed Expertise	Synthetic biology, genomics, bioinformatics
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Governability
+          </td>
+          <td>
+            Low
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Consequences
+          </td>
+          <td>
+            Moderate to high
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Existing Countermeasures
+          </td>
+          <td>
+            <ol>
+              <li>
+                Education: Ongoing education within the team on the ethical implications and dual-use nature of synthetic biology, including awareness training to identify potential misuse.
+              </li>
+              <li>
+                Constitutional Policies: The iGEM constitution contains strict policies against the misuse of any project elements, ensuring accountability among team members.
+              </li>
+              <li>
+                Transparency Documentation: We have implemented a comprehensive documentation system to ensure transparency within our project. All team decisions, meeting minutes, project updates, and relevant documents are systematically stored in Google Drive.
+              </li>
+              <li>
+                Access Control: Only iGEM members have access to sensitive datasets, preventing public access and minimizing risks.
+              </li>
+              <li>
+                Weekly Meetings: Regular discussions on potential risks and transparency among team members.
+              </li>
+            </ol>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  {{ subsubheading("In Silico Synthesis of a Pathogen Risk Assessment") }}
+  <div>
+
+    <table class="entrepreneurship">
+      <thead>
+        <tr>
+          <th>
+            Criterion
+          </th>
+          <th>
+            Assessment
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Probability
+          </td>
+          <td>
+            Moderate
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Adversary
+          </td>
+          <td>
+            Nation-state, nonstate group, or individual
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Timeline
+          </td>
+          <td>
+            Mid term (6 to 10 years)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Democratization
+          </td>
+          <td>
+            High
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Vulnerabilities
+          </td>
+          <td>
+            <ul>
+              <li>Data Quality: Dependence on the availability and quality of data for training algorithms; poor data can lead to unreliable outcomes.</li>
+              <li>Stakeholder Resistance: Potential pushback from stakeholders or the public regarding the use of in silico methods, impacting project acceptance.</li>
+              <li>Integration Challenges: Difficulties in integrating in silico findings with existing biological or clinical data and practices.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Needed Expertise
+          </td>
+          <td>
+            Synthetic biology, bioinformatics
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Governability
+          </td>
+          <td>
+            Moderate
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Consequences
+          </td>
+          <td>
+            High
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Existing Countermeasures
+          </td>
+          <td>
+            <ol>
+              <li>We are expanding our datasets and collaborating with academic experts to ensure high-quality data for training algorithms, as poor data can lead to unreliable outcomes.</li>
+              <li>Collaboration with Ethicists: Regular collaboration with ethicists like Dr. Jonathan Herington to evaluate research directions, ensuring alignment with societal values.</li>
+              <li>We are focused on working with E. coli, but we acknowledge the uncertainties surrounding integration with other organisms. In discussions with Professor Herrington, he emphasized the importance of transparency and public communication, reinforcing that our current work serves as proof of concept. By clearly conveying our objectives and progress, we aim to build understanding and trust regarding potential applications with other bacteria.</li>
+            </ol>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  {{ subsubheading("Brain-Computer Interface Exploitation Risk Assessment") }}
+  <div>
+
+    <table class="entrepreneurship">
+      <thead>
+        <tr>
+          <th>
+            Criterion
+          </th>
+          <th>
+            Assessment
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Probability
+          </td>
+          <td>
+            Moderate
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Adversary
+          </td>
+          <td>
+            Nation-state, nonstate group, or individual
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Timeline
+          </td>
+          <td>
+            Long term (11+ years)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Democratization
+          </td>
+          <td>
+            Very High
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Vulnerabilities
+          </td>
+          <td>
+            User Awareness and Training
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Needed Expertise
+          </td>
+          <td>
+            Neuroscience, computer science, electronics
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Governability
+          </td>
+          <td>
+            Moderate
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Consequences
+          </td>
+          <td>
+            Very High
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Existing and Future Countermeasures
+          </td>
+          <td>
+            <ol>
+              <li>Education: Continuous education within the team on the ethical implications and dual-use nature of BCIs, ensuring members can identify potential misuse.</li>
+              <li>Access to Online Resources: The University of Toronto (UofT) provides access to reputable online resources, articles, and videos related to BCI technology and security. This enables users to explore relevant topics at their own pace, enhancing their understanding of the technology and associated risks.</li>
+              <li>We will prioritize implementing robust prescreening measures to ensure the reliability and safety of data used in training BCI algorithms, particularly if we explore toxin-antitoxin systems in the future, as advised by Dr. Herrington.</li>
+            </ol>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div>
+    <p>
+      We have also delved into the synergy of other technologies with Plasmid AI, which you can find here
+    </p>
+  </div>
+
+  {{ subheading("References") }}
+  <div>
+    <ul>
+      <li>
+        1.	O’Brien, J. T., & Nelson, C. (2020). Assessing the Risks Posed by the Convergence of Artificial Intelligence and Biotechnology. Health Security, 18(3), 228-235. https://doi.org/10.1089/hs.2019.0122
+      </li>
+    </ul>
+  </div>
+
 
 {% endblock %}

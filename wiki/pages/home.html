@@ -23,7 +23,6 @@
           </span>
         </h4>
       </div>
-      <img class="w-full my-8 {{ hover_in() }}" src="{{ new_cdn('assets/graphics/bacterium-v2.png') }}">
     </div>
 
     <div class="w-full my-20 lg:px-36 px-8">
@@ -88,7 +87,6 @@
         </div>
       </div>
     </div>
-    <img class="w-full my-8 {{ hover_in() }}" src="{{ new_cdn('assets/graphics/bacterium-v2.png') }}">
 
     <div class="w-full my-20 lg:px-36 px-8">
       <h1 class="text-font-light mb-16 {{ hover_in() }}">
@@ -105,8 +103,10 @@
               using plasmid dataset. These plasmids are then extensivley validated in silico.
             </p>
           </div>
-          <div class="flex-1">
-            <img class="w-full" src="{{ new_cdn('assets/graphics/bacterium-v2.png') }}">
+          <div class="flex-1 text-5xl flex items-center justify-center text-font-light">
+            <div class="border-font-light border-2 rounded-full w-32 h-32 flex items-center justify-center">
+              1
+            </div>
           </div>
         </div>
         <div class="flex lg:flex-row flex-col items-center {{ hover_in() }} gap-y-8">
@@ -119,8 +119,10 @@
               wet lab, where they are assessed for functionality.
             </p>
           </div>
-          <div class="flex-1">
-            <img class="w-full" src="{{ new_cdn('assets/graphics/bacterium-v2.png') }}">
+          <div class="flex-1 text-5xl flex items-center justify-center text-font-light">
+            <div class="border-font-light border-2 rounded-full w-32 h-32 flex items-center justify-center">
+              2
+            </div>
           </div>
         </div>
         <div class="flex lg:flex-row-reverse flex-col items-center {{ hover_in() }} gap-y-8">
@@ -134,8 +136,10 @@
               throughput of the Plasmid.AI pipeline.
             </p>
           </div>
-          <div class="flex-1">
-            <img class="w-full" src="{{ new_cdn('assets/graphics/bacterium-v2.png') }}">
+          <div class="flex-1 text-5xl flex items-center justify-center text-font-light">
+            <div class="border-font-light border-2 rounded-full w-32 h-32 flex items-center justify-center">
+              3
+            </div>
           </div>
         </div>
       </div>
@@ -151,7 +155,7 @@
     </div>
 
     <div class="w-full flex justify-center my-16">
-      {{ arrow_button("Learn More", "/description.html") }}
+      {{ arrow_button("Learn More", "description.html") }}
     </div>
     
     {% include 'layout/footer.html' %}
