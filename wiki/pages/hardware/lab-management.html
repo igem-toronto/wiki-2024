@@ -12,68 +12,80 @@
     </div>
     {{ subsubheading("Introduction") }} 
     <div>
-      <p>
-        <i>“…samples from 2019 in the 4th floor fridge…”</i>
-        <i>“Not having the date written on tubes”</i>
-        <i>“Taking too long to find the correct 1.5ml tubes”</i>
-        &emsp; — From the wet lab team
-        <br>
-        To increase throughput, the wet lab team must be able to focus on synthesizing and evaluating plasmids, not locating mislabeled samples. Current stock control methods, usually by labeling on the tubes and recording the location of said tube in a public spreadsheet, are inadequate. They differ from person to person introducing variability, omit important details such as time which are not conveniently acquired, and sometimes are outright forgotten. A more accurate form of stock control is required. Required key functions include ability to associate a sample with a potentially long description, automatically timestamp each sample, identify in which building or fridge a sample is, and enable a stock accounting system for samples.
-        <br>
-        The hardware team has used industry as an inspiration and designed a rack for storing samples on tubes. Said racks will have electronics for identifying the presence of a sample in rack wells, as well as other functionality to enable stock accounting. This is in line with industry solutions, where industrial racking is supplied with barcodes to enable stocks of goods to be tracked on a database. To address the need for a system that is functional across multiple locations, internet of things techniques were used. This is featured in the use of wireless microcontrollers, databases, and communication servers. Ergonomics and modularity were also considerations addressed in this product system’s architecture.
-      </p>
+    <p>
+      <i>“…samples from 2019 in the 4th floor fridge…”</i>
+      <i>“Not having the date written on tubes”</i>
+      <i>“Taking too long to find the correct 1.5ml tubes”</i>
+      &emsp; — From the wet lab team
+    </p>
+    <p>
+      To increase throughput, the wet lab team must be able to focus on synthesizing and evaluating plasmids, not locating mislabeled samples. Current stock control methods, usually by labeling on the tubes and recording the location of said tube in a public spreadsheet, are inadequate. They differ from person to person introducing variability, omit important details such as time which are not conveniently acquired, and sometimes are outright forgotten. A more accurate form of stock control is required. Required key functions include ability to associate a sample with a potentially long description, automatically timestamp each sample, identify in which building or fridge a sample is, and enable a stock accounting system for samples.
+    </p>
+    <p>
+      The hardware team has used industry as an inspiration and designed a rack for storing samples on tubes. Said racks will have electronics for identifying the presence of a sample in rack wells, as well as other functionality to enable stock accounting. This is in line with industry solutions, where industrial racking is supplied with barcodes to enable stocks of goods to be tracked on a database. To address the need for a system that is functional across multiple locations, internet of things techniques were used. This is featured in the use of wireless microcontrollers, databases, and communication servers. Ergonomics and modularity were also considerations addressed in this product system's architecture.
+    </p>
     </div>
 
     {{ subsubheading("Architecture") }}
     <div>
       <p>
         The combined product system consists of a rack with IR (infrared) proximity sensors, LEDs, and a wireless-enabled microcontroller (Arduino Uno Wifi Rev2), a RFID reader assembly with a wireless-enabled microcontroller (Arduino MKR Wifi 1010), an MQTT broker, a MongoDB database server, and a GUI endpoint. This architecture is adapted from {{cite('baird2023building')}}, which was originally intended for use in self-driving labs.
-        <br>
         <i>Overall product system</i>
         {{img(new_cdn("hardware/screenshot-2024-08-25-195053.png"), width="80%")}}
         Figure 1. Overall product system process diagram.
-        <br>
+      </p>
+      <p>
         <i>Rack</i>
         {{img(new_cdn("hardware/thumbnail-image0.jpg"), width="80%")}}
         Figure 2. Rack system fabricated by team.
-        <br>
+      </p>
+      <p>
         The rack is a 3D-printed assembly augmented with electronics, including sensors and microcontrollers. IR sensors are used to detect the presence of tubes in wells. One IR sensor is required per rack well. The team used the GP2Y0A51SK0F IR sensor as it has a suitable detection range and can withstand temperatures of up to -20C. {{cite('Sharp_Electronics_2011')}} LEDs are used to cue users on which wells to pick up or drop samples in. The microcontroller, an Arduino Uno Wifi Rev2, was chosen because of its relatively large number of pins and its ability to communicate over enterprise networks. Most university networks are enterprise networks, requiring a username and password to log into. A 9V battery is required to power the Arduino.
-        <br>
+      </p>
+      <p>
         <i>RFID reader</i>
         {{img(new_cdn("hardware/thumbnail-image1.jpg"), width="80%")}}
         Figure 3. RFID reader system devised by team.
-        <br>
+      </p>
+      <p>
         The RFID reader assembly is an MFRC522 MIFARE RFID reader (15.6 MHz) connected to an Arduino MKR Wifi 1010 {{cite('Arduino_2024')}}. In this case, a different Arduino is chosen due to its ability to communicate over enterprise networks, 3.3V logic (the RFID reader operates at 3.3V), built-in real time clock (RTC), and greater amount of RAM.
-        <br>
+      </p>
         <i>GUI endpoint</i>
         {{img(new_cdn("hardware/screenshot-2024-09-06-011740.png"), width="80%")}}
-        <br>
+      <p>
         To provide a means of interacting with the product system, the team designed a GUI endpoint to enable user-friendly interaction with the product system. The GUI endpoint displays the state of all wells and racks, allows interaction with indicated racks, and displays information on each sample held in each well. Multiple GUI endpoints may be safely run at a time.
-        <br>
+      </p>
         <i>MQTT and MongoDB</i>
-        <br>
+      <p>
         To provide a means of wireless storage and communications, an MQTT broker and a MongoDB server instance is used respectively.
-        <br>
-        MQTT enables wireless source-agnostic communication. Devices communicating over MQTT do not need to know the each other’s IP address; they only need to know the address of the MQTT broker. It is the wireless equivalent of a serial channel. The team used a HiveMQ MQTT broker instance {{cite('HiveMQ_2024')}}. Software libraries supporting communication over MQTT are available for both Python scripts and Arduino microcontrollers.
-        <br>
+      </p>
+      <p>
+        MQTT enables wireless source-agnostic communication. Devices communicating over MQTT do not need to know the each other's IP address; they only need to know the address of the MQTT broker. It is the wireless equivalent of a serial channel. The team used a HiveMQ MQTT broker instance {{cite('HiveMQ_2024')}}. Software libraries supporting communication over MQTT are available for both Python scripts and Arduino microcontrollers.
+      </p>
+      <p>
         MongoDB provides database access functionality to all linked microcontrollers and GUI endpoints, allowing all GUI endpoints to access the same information and enable real-time database updates {{cite('MongoDB_2024')}}. Access to MongoDB is provided via Python API for the GUI endpoint and a REST API for microcontrollers.
-        <br>
+      </p>
+      <p>
         Both services carry free plans allowing our team to build stock control systems at no costs incurred due to third party services.
-        <br>
+      </p>
+      <p>
         <i>Integration</i>
-        <br>
+      </p>
+      <p>
         This product system is inherently complicated as it involves multiple remote devices that must act in concert to fulfill its purpose. The team drew inspiration from Git's four-step check-in/check-out system to implement a conceptually similar check-in/out workflow. Integration over multiple devices was achieved through a set of protocols and contracts.
-        <br>
+      </p>
+      <p>
         Protocols are specific, large-scale tasks designed to be done in sequence and achieve a specific function. One example is registration, where new samples are keyed in and stored in a rack. Registering a sample follows a specific set of steps, the order of which all devices involved must know and participate in correctly.
-        <br>
+      </p>
+      <p>
         Contracts are input/output agreements designed to help abstract technologies from members of the team. In this project, contracts are used to specify which MQTT messages should a device expect to input and output, and in which format, allowing GUI programmers to avoid having to re-learn Arduino syntax and vice versa.
-        <br>
+      </p>
+      <p>
         Protocols and contracts also help increase modularity as interactions between multiple devices are consolidated in one place, allowing easier review and alteration.
       </p>
     </div>
     {{ subsubheading("Bill of Materials ")}}
     <div>
-
       <table class="entrepreneurship">
         <thead>
           <tr>
@@ -91,7 +103,7 @@
           <tr>
             <td>GP2Y0A51SK0F IR sensor</td>
             <td>As many as there are rack wells</td>
-            <td>This sensor not only detects presence but also distance to the next object, which is essential as an empty rack well and a full rack well are both within the IR sensor’s range.</td>
+            <td>This sensor not only detects presence but also distance to the next object, which is essential as an empty rack well and a full rack well are both within the IR sensor's range.</td>
           </tr>
           <tr>
             <td>LED</td>
@@ -179,13 +191,14 @@
     <div>
       <p>
         Unfortunately, we were not able to perform complete integrative testing with the entire product system and in an actual in-lab setting. Testing was done component-wise, and some integrative testing was completed, as follows. End user testing was never completed but planned.
-        <br>
+      </p>
+      <p>
         <i>Component-wise testing</i>
-        <br>
+      </p><p>
         Component-wise testing was done via a black box model. Each component was tested for compliance with the protocols. Other components were simulated mainly through their MQTT and database interactions. A workflow of testing is as follows:
       </p>
       <ol>
-        <li>Identify the device’s specific role and task in the protocol, what communication (usually MQTT) input triggers the task, and the expected outputs of the task.</li>
+        <li>Identify the device's specific role and task in the protocol, what communication (usually MQTT) input triggers the task, and the expected outputs of the task.</li>
         <li>Simulate the MQTT input via a Python script.</li>
         <li>Eavesdrop on all outgoing MQTT messages via a Python script.</li>
         <li>Depending on whether the component meets the intended behaviour, correct any scripts or circuitry involved, add traces in any scripts, and repeat.</li>
@@ -193,19 +206,20 @@
       
       <p>
         Two relevant scripts for component-wise testing are the mqtt_publisher.py and the mqtt_listener.py, which allow arbitrary MQTT messages to be sent and eavesdropped on.
-        <br>
+      </p>
+      <p>
         Component-wise testing was done over multiple levels, starting with the microcontroller only and gradually adding additional peripheral hardware such as sensors. Gradually, in our <i>integrative testing</i> stage, simulated inputs were replaced with other actual components.
       </p>
       <i>End user testing</i>
       
       <p>
-        This testing aims to ensure the product system’s compatibility with the wet lab team’s practices. The whole product system would be provided to the wet lab team and any feedback collected. Emphasis would be laid on any points that the hardware team could not provide:
+        This testing aims to ensure the product system's compatibility with the wet lab team's practices. The whole product system would be provided to the wet lab team and any feedback collected. Emphasis would be laid on any points that the hardware team could not provide:
       </p>
       
       <ul>
         <li>Performance in a typical laboratory environment</li>
         <li>Ease of use</li>
-        <li>Additional features relevant to improving wet lab’s workflow, tying into principles discussed in our process engineering improvements.</li>
+        <li>Additional features relevant to improving wet lab's workflow, tying into principles discussed in our process engineering improvements.</li>
       </ul>
       <p>
         As this is a process engineering project, process engineering metrics will be used to measure the efficacy of the system, and identify actionable items moving forward:
@@ -327,7 +341,8 @@
     {{subsubheading('Abstract')}}
     <div>
       <p>In the context of the lab management system, microcontrollers are important because they detect critical information and act as communication intermediary between user interfaces and cloud databases. For our solution, two microcontrollers were set up, one to monitor the rack on which samples were placed, and the other  for identifying and updating RFID information that each sample is associated with. Communication between the two microcontrollers and a user interface is done through MQTT (Message Queuing Telemetry Transport) in publisher-subscriber relationships through string or JSON (JavaScript Object Notation) format. Communication between microcontrollers and cloud databases is achieved via HTTP (Hypertext Transfer Protocol Secure).</p>
-      <br>
+    </div>
+    <div>
       <p>As our first step, all possible user interactions with the management system are broken down into five processes, namely, startup, registration, checking-in, checking-out, and deregistration. Each process has its own operations, payload, and MQTT topic, all of which are agreed upon between microcontroller and UI developers via a contract. Process workflows, operations, and fields of required data are detailed in the protocol document. Next, the hardware team set up the MongoDB cloud database, translated protocols into microcontroller code, and established wireless communication between various parties of the management system. Main expertise required from the hardware team includes Arduino coding, SQL (Structured Query Language), cURL commands, MQTT and HTTP communication protocols.</p>
     </div>
     {{subsubheading('Introduction')}}
@@ -376,7 +391,6 @@
           </tr>
         </tbody>
       </table>
-      <br>
       <p>RFID Chips</p>
       <table class="entrepreneurship">
         <tbody>
@@ -400,7 +414,6 @@
           </tr>
         </tbody>
       </table>
-      <br>
       <ul>
         <li>MQTT broker: using HiveMQ, a cluster was created to hold messages across different topics. This included login credentials for the ability to publish and subscribe to different topics. </li>
         <li>Arduino programming: the code for arduino programming was structured such that each user interaction such as registration, checking-in, RFID tap, proximity sensor detection are coded in individual functions. Depending on how each process update the cloud database, specific payloads for different actions were set up inside those individual functions. MQTT is used as the communication protocol between Arduinos and cloud database, so specific topics were created for publication and subscription. In the callback functions, the individual functions written for different process were executed depending on the payload. For instance, in the arduino/rfid topic, if the python user payload is “REGISTRATION”, the function regcheckin_putsample is ran in the arduino code. Reference the contract established for more details. </li>
@@ -409,7 +422,7 @@
     {{subsubheading('Methods')}}
     <div>
       <ol type="1" start="1">
-        <li>Set up the Arduino’s connections to the wifi network of your choice.</li>
+        <li>Set up the Arduino's connections to the wifi network of your choice.</li>
       </ol>
       <p>First, establish the login details to the wifi network.</p>
       <br><hr>
@@ -448,18 +461,22 @@
       <p>For the MQTT server:</p>
       {{img(new_cdn("hardware/mqtt-cred-screen.png"), width="60%")}}
       Figure 1. MQTT credential generation screen.
-      <br>
-      <p>Note the <b>cluster url </b>and <b>port</b> that is generated with your cluster. Also write down the <b>username</b> and <b>password</b> that you chose for your MQTT server. You will be using these credentials to connect to the MQTT server with both of the Arduino microcontrollers to both publish to and subscribe to topics.</p>
-      <br>
-      <p>For the MongoDB database:</p>
-      <br>
+      <p>
+        Note the <b>cluster url </b>and <b>port</b> that is generated with your cluster. Also write down the <b>username</b> and <b>password</b> that you chose for your MQTT server. You will be using these credentials to connect to the MQTT server with both of the Arduino microcontrollers to both publish to and subscribe to topics.
+      </p>
+      <p>
+        For the MongoDB database:
+      </p>
       <p>Set up the MongoDB Atlas database project, create database (igemhardware) and collections within the database (RFID Chips &amp; Rack Well). Set up credentials such as data API key name and private key, user access, network access, and URL endpoint. Set up the collections (i.e creating fields with empty values) via a Python script HTTPS communication. </p>
       <ol type="1" start="3">
         <li>Establishing basic pub/sub functionality with the Arduino microcontrollers.</li>
       </ol>
-      <p>This is where the Arduinos can receive specific commands from the GUI endpoint or send over the data to be generated with the sensors + readers connected to them. </p>
-      <br>
-      <p>Again, remember to initialise the variables below so that we can call the relevant mqtt client functions, connecting the arduino to the mqtt server.</p>
+      <p>
+        This is where the Arduinos can receive specific commands from the GUI endpoint or send over the data to be generated with the sensors + readers connected to them.
+      </p>
+      <p>
+        Again, remember to initialise the variables below so that we can call the relevant mqtt client functions, connecting the arduino to the mqtt server.
+      </p>
       <br><hr>
       <pre><code>// initialise values
       // enter the cluster url + port you noted down earlier here
@@ -508,7 +525,7 @@
         return payload;
       }</code></pre>
       <hr><br>
-      <p>Now that we’ve established functionality for receiving and reading messages from the mqtt server, we need to establish the sending functionality. We can do this through making a function called mqttSend using the following code.</p>
+      <p>Now that we've established functionality for receiving and reading messages from the mqtt server, we need to establish the sending functionality. We can do this through making a function called mqttSend using the following code.</p>
       <br><hr>
       <pre><code>void mqttSend(String topic, String payload){
         mqttClient.beginMessage(topic);
@@ -519,8 +536,12 @@
       <ol type="1" start="4">
         <li>Interfacing Arduino connections to proximity sensors, the RTC clock, and RFID reader.</li>
       </ol>
-      <p><i>Proximity sensors:</i></p><br>
-      <p> Code from {{cite('RoboJax_2024')}} was adapted for use in reading IR sensor distance readouts, and ultimately, the presence of a vial. This function updates the array “distance” every time it runs.</p>
+      <p>
+        <i>Proximity sensors:</i>
+      </p>
+      <p>
+        Code from {{cite('RoboJax_2024')}} was adapted for use in reading IR sensor distance readouts, and ultimately, the presence of a vial. This function updates the array “distance” every time it runs.
+      </p>
       <br><hr>
       <pre><code>const int sensorPin[] = {A0, A1, A2, A3, A4, A5};
       float distance[6];
@@ -555,8 +576,9 @@
         old_distance[sensor] = distance[sensor];
         return 1;
       }</code></pre>
-      <p><i>RTC clock:</i></p>
-      <br>
+      <p>
+        <i>RTC clock:</i>
+      </p>
       <p>An RTC clock is set up with the RFID Arduino such that every time the user taps RFID, date information is recorded. The RTC clock used in this project is the MKR WiFi 1010. When setting up the Arduino, calibrate the datetime object. The code for the RTC clock can be found below.</p>
       <br><hr>
       <pre><code>void setup() {
@@ -627,8 +649,8 @@
         return JSONText;
       }</code></pre>
       <hr><br>
-      <p>The workflow specifies what fields in the clusters would change based on the user actions. For instance, whenever an RFID is tapped, time information across the database is updated. Occupancy information only changes in the check-in and check-out process in conjunction with proximity sensor detection. </p>
-      <br>
+      <p>
+        The workflow specifies what fields in the clusters would change based on the user actions. For instance, whenever an RFID is tapped, time information across the database is updated. Occupancy information only changes in the check-in and check-out process in conjunction with proximity sensor detection. </p>
       <p>These functions containing payloads are called in the callback functions. To differentiate between different user actions, the payload from the user interface to Arduino differs depending on the subscribed topic and payload. The conditionals constructed in the payback ensure that the appropriate database payload is sent back to the user with each action. </p>
       <ol type="1" start="6">
         <li>Hardware Assembly</li>
@@ -661,9 +683,12 @@
     </div>
     {{subsubheading('Introduction')}}
     <div>
-      <p>Scientists working in biological and chemical laboratories often work with hundreds of small vials of samples. When storing them for later use, it is critical to keep track of their identities. If there is a long time between successive uses of the vials, relying on memory and penned notes is unreliable. Our inventory management software creates a streamlined process for researchers to record notes and history for their samples. Accessing and searching inventory data on a computer interface can boost researcher productivity and streamline workflows, by removing uncertainty and confusion about the samples that are in use. </p>
-      <br>
-      <p>The graphics user interface (GUI) for our inventory management software is designed with reliability and convenience as the highest priorities. The inventory management system will only work if its protocols are followed; therefore, the system has been designed to be minimally disruptive to the researcher’s workflow. The result is a system that saves time and boosts collaboration between researchers, democratizing information about samples and safeguarding against mistakes in picking samples. </p>
+      <p>
+        Scientists working in biological and chemical laboratories often work with hundreds of small vials of samples. When storing them for later use, it is critical to keep track of their identities. If there is a long time between successive uses of the vials, relying on memory and penned notes is unreliable. Our inventory management software creates a streamlined process for researchers to record notes and history for their samples. Accessing and searching inventory data on a computer interface can boost researcher productivity and streamline workflows, by removing uncertainty and confusion about the samples that are in use.
+      </p>
+      <p>
+        The graphics user interface (GUI) for our inventory management software is designed with reliability and convenience as the highest priorities. The inventory management system will only work if its protocols are followed; therefore, the system has been designed to be minimally disruptive to the researcher's workflow. The result is a system that saves time and boosts collaboration between researchers, democratizing information about samples and safeguarding against mistakes in picking samples.
+      </p>
     </div>
     {{subsubheading('Prerequisites')}}
     <div>
@@ -671,11 +696,15 @@
     </div>
     {{subsubheading('Product System')}}
     <div>
-      <p>The GUI is programmed in Python using the Tk library. The GUI maintains a local database that is updated based on communication with the cloud database and Arduino devices, as well as through the user interface itself. The local database is used to identify discrepancies between the vial that the user indicates they want to select, and the vial that they scan with the RFID reader. The codebase for the GUI is structured by classes for each window, and objects being created and deleted as vials are registered and deregistered. </p>
-      <br>
-      <p>A MongoDB database is updated periodically by the GUI, and the GUI periodically refreshes its own local database with information from the cloud. The current architecture assumes that a single GUI endpoint is used in combination with a set of racks; conflicting database updates from multiple GUI endpoints should not occur.</p>
-      <br>
-      <p>The GUI communicates with the other arduino devices on the network (RFID scanner, vial rack) with the MQTT protocol and uses multithreading to handle communications across the network and with the cloud database. Issues with race conditions in multithreading are avoided by using a queue based system, with queues from MQTT and database communications being handled by callback functions for each. </p>
+      <p>
+        The GUI is programmed in Python using the Tk library. The GUI maintains a local database that is updated based on communication with the cloud database and Arduino devices, as well as through the user interface itself. The local database is used to identify discrepancies between the vial that the user indicates they want to select, and the vial that they scan with the RFID reader. The codebase for the GUI is structured by classes for each window, and objects being created and deleted as vials are registered and deregistered.
+      </p>
+      <p>
+        A MongoDB database is updated periodically by the GUI, and the GUI periodically refreshes its own local database with information from the cloud. The current architecture assumes that a single GUI endpoint is used in combination with a set of racks; conflicting database updates from multiple GUI endpoints should not occur.
+      </p>
+      <p>
+        The GUI communicates with the other arduino devices on the network (RFID scanner, vial rack) with the MQTT protocol and uses multithreading to handle communications across the network and with the cloud database. Issues with race conditions in multithreading are avoided by using a queue based system, with queues from MQTT and database communications being handled by callback functions for each. 
+      </p>
     </div>
     {{subsubheading('Methods')}}
     <div>
@@ -683,10 +712,13 @@
       <ol type="1" start="1">
         <li>Overall Code Architecture</li>
       </ol>
-      <p>The GUI is organized hierarchically; each window is a Toplevel that is a child to a parent Toplevel, with the main Tk() object being the root. Termination of the main Tk() object exits the program. The inventory window and the popup windows associated with each of the registration, deregistration, check-in, and check-out processes are classes that are invoked by button presses. The constructor for each window class draws all elements within the window; if elements need to be drawn or added after the window is constructed, the callback can change the configuration of existing widgets, delete and redraw existing widgets, or some other combination. This program was coded in a manner that avoids deleting and redrawing widgets, as this can result in significant added computational overhead.</p>
-      <br>
-      <p>The multithreading occurs within a Threaded Client class; the client class constructs the visual elements of the GUI as well as starts the threads for communicating on MQTT and with MongoDB. The messages received from those communication threads are passed into a queue and handled by callback functions in the threads as well as in the main Tk code. </p>
-      <br><hr>
+      <p>
+        The GUI is organized hierarchically; each window is a Toplevel that is a child to a parent Toplevel, with the main Tk() object being the root. Termination of the main Tk() object exits the program. The inventory window and the popup windows associated with each of the registration, deregistration, check-in, and check-out processes are classes that are invoked by button presses. The constructor for each window class draws all elements within the window; if elements need to be drawn or added after the window is constructed, the callback can change the configuration of existing widgets, delete and redraw existing widgets, or some other combination. This program was coded in a manner that avoids deleting and redrawing widgets, as this can result in significant added computational overhead.
+      </p>
+      <p>
+        The multithreading occurs within a Threaded Client class; the client class constructs the visual elements of the GUI as well as starts the threads for communicating on MQTT and with MongoDB. The messages received from those communication threads are passed into a queue and handled by callback functions in the threads as well as in the main Tk code.
+      </p>
+      <hr>
       <pre><code>class ThreadedClient:
         def __init__(self, master: Tk):
             self.master = master
