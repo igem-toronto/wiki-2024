@@ -1,6 +1,6 @@
 {% macro link(text, target) -%}
   <div class="hover:text-accent-muted-purple ease-in duration-100
-              text-2xl
+              text-md
               xl:py-0 xl:px-10
               text-left py-2 flex items-center font-roboto-mono">
     <a href="{{ url_for('pages', page=target + '.html') }}" class="hover:text-accent-muted-purple text-white">{{ text }}</a>
@@ -19,7 +19,7 @@
               font-roboto-mono">
     <div class="
                 xl:px-10
-              hover:text-accent-muted-purple ease-in duration-100 xl:text-center text-left text-2xl">
+              hover:text-accent-muted-purple ease-in duration-100 xl:text-center text-left text-md">
       {{ text }}
     </div>
     <div class=" w-full flex flex-col
@@ -32,7 +32,7 @@
             'xl:top-0': expanded != '{{ text }}' && {{ 'true' if direction == 'up' else 'false' }},
             'xl:-top-88': expanded == '{{ text }}' && {{ 'true' if direction == 'up' else 'false' }} }"
       x-cloak>
-      <div class="flex flex-col bg-opacity-80
+      <div class="flex flex-col bg-opacity-80 
                 xl:border-primary-dark xl:border-l-2 xl:bg-primary-extra-light">
       {% for sublink in sublinks %}
         <a  href="{{ sublink[1] if sublink[1].startswith('http') else url_for('pages', page=sublink[1] + '.html') }}"
@@ -62,16 +62,16 @@
 <div  x-data="{ extended: false }"
       @click.away="extended = false"
       class="
-          flex w-full bg-primary-dark items-center justify-between">
-  <div class="my-4 mx-8">
+          flex flex-row w-full bg-primary-dark justify-between">
+  <div class="flex-initial my-4 mx-8">
     <a  href="https://2024.igem.wiki/utoronto/">
       <img  
             src="{{ new_cdn('assets/graphics/plasmid-ai-logo-text.png') }}"
             alt="iGEM Toronto Logo"
-            class="h-12 mt-2">
+            class="h-8 mt-2">
     </a>
   </div>
-  <nav class="p-4 gap-4 text-font-light text-base flex
+  <nav class="flex p-4 gap-4 text-font-light text-base flex
               ease-in duration-200
               xl:flex-row xl:translate-y-0 xl:static xl:top-0 xl:bg-transparent xl:w-auto
               flex-col absolute top-0 right-0 bg-primary-dark w-screen z-50"
@@ -90,10 +90,9 @@
       {{ links(navigation) }}
     </div>
   </nav>
-  <div class="flex-1 basis-0"></div>
-  <div  class="xl:hidden flex p-5 cursor-pointer text-white"
+  <div  class="flex xl:hidden p-5 cursor-pointer text-white"
         @click="extended = !extended">
-    <svg class="h-10" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+    <svg class="h-8" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
       <path d="M 10 16 L 70 16 L 70 24 L 10 24 L 10 16" fill="white"/>
       <path d="M 10 36 L 70 36 L 70 44 L 10 44 L 10 36" fill="white"/>
       <path d="M 10 56 L 70 56 L 70 64 L 10 64 L 10 56" fill="white"/>
