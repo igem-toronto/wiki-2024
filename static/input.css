@@ -112,5 +112,5 @@ table.entrepreneurship td, table.entrepreneurship th {
 }
 
 code { 
-    @apply block bg-accent-light-purple p-4 mb-4
+    @apply block bg-accent-light-purple p-4 mb-4 overflow-auto
 }
