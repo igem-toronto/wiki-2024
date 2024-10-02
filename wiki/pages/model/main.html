@@ -116,11 +116,11 @@
     </p>
     <p>
         In early experiments, we also found that 
-        nucleotide-level tokenization produced models that tended to collapse to generating mononucleotide repeats
-        during sampling. We note that this pathology is well-known in NLP and one strategy to mitigating it is to apply a 
-        repetition penalty that discourages the model from repeating tokens. However, this strategy seems ill-suited 
-        to the domain of genomics, where repetition is ubiqitous and important in DNA. Fortunately, this behaviour
-        was not observed when using BPE tokenization.
+        nucleotide-level tokenization produced pathological models that tended to collapse towards long mononucleotide repeats
+        during sampling. We note that this failure mode is well-known in NLP and one strategy for mitigating it is to apply a 
+        repetition penalty that discourages the model from repeating tokens. However, this seems ill-suited 
+        to the domain of genomics, where repetition is ubiqitous and important. Fortunately, this behaviour
+        was not observed after switching to BPE tokenization.
     </p>
 </div>
 
