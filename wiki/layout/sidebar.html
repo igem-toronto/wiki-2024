@@ -12,10 +12,10 @@
       <ul class="custom flex flex-col gap-0">
         <template x-for="(subheading, index) in (selectedSubpage >= 0 ? subpages[selectedSubpage].subheadings : [])"
             :key="subheading.key">
-          <li class="my-2 flex flex-col">
+          <li class="my-1 flex flex-col">
             <a @click.preventDefault="openNavHead = index" :href="`#${subheading.key}`"
               class="hover:text-accent-saturated-purple
-              text-base ease-in duration-100 text-left"
+              ease-in duration-100 text-left text-sm"
               x-text="subheading.text"
               :class="{ 'text-accent-saturated-purple': scrolledHeading == subheading.key, 'text-gray-400': scrolledHeading != subheading.key  }"></a>
             </a>
@@ -28,9 +28,9 @@
               <template x-for="subsubheading in subheading.subsubheadings" :key="subsubheading.key">
                 <li>
                   <a @click.preventDefault :href="`#${subsubheading.key}`">
-                    <div class="text-md text-gray-400
+                    <div class="text-gray-400
                         ease-in duration-100 hover:text-accent-saturated-purple
-                        text-left my-1" x-text="subsubheading.text"
+                        text-left text-sm my-1" x-text="subsubheading.text"
                         :class="{
                           'text-accent-saturated-purple': scrolledHeading == subsubheading.key,
                           'text-gray-400': scrolledHeading != subsubheading.key
