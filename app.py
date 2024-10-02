@@ -122,6 +122,7 @@ def people():
     team_members["Human Practices"] = []
     team_members["Wiki"] = []
     team_members["Outreach"] = []
+    team_members["Finance"] = []
     team_members["Advisor"] = []
     
     with open("static/team.csv") as f:
