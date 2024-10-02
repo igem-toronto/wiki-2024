@@ -132,11 +132,11 @@
             {% endblock %}
           {% endif %}
         </div>
+        {% if add_sidebar is defined and add_sidebar %}
         <div class="flex lg:w-[15%]">
-          {% if add_sidebar is defined and add_sidebar %}
             {% include 'layout/sidebar.html' %}
-          {% endif %}
         </div>
+        {% endif %}
       </div>
     </div>
     {% block bottom_banner %}{% endblock %}
