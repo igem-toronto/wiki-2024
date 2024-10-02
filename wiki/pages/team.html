@@ -31,9 +31,9 @@
             <div class="w-screen h-screen fixed top-0 left-0 grid place-items-center" x-show="focused" x-cloak>
               <div
                   @click.away="focused = false"
-                  class="p-4 lg:w-5/12 w-9/12 border-2 border-primary-dark bg-white rounded-md flex">
+                  class="p-4 lg:w-5/12 w-9/12 border-0 border-primary-dark bg-white rounded-lg flex p-8">
                 <div class="w-2/3 mr-4">
-                  <h2>{{ member.name }}</h2>
+                  <h2 class="mb-3">{{ member.name }}</h2>
                   {{ member.description }}
                   <div class="flex mt-4 gap-2">
                     {% if member.linkedin.strip() != "" %}
