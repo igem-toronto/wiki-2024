@@ -28,7 +28,7 @@ h3 {
 }
 
 h4 {
-    @apply text-lg font-bold font-roboto;
+    @apply text-xl font-bold font-roboto;
 }
 
 .rotate-y-180 {
