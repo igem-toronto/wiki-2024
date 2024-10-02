@@ -133,17 +133,11 @@
     });
 </script>
 
-{{ subpage("Introduction") }}
-{% include 'pages/model/introduction.html' with context %}
+{{ subpage("Details") }}
+{% include 'pages/model/main.html' with context %}
 
-{{ subpage("Methods") }}
-{% include 'pages/model/methods.html' with context %}
-
-{{ subpage("Discussion & Conclusion") }}
-{% include 'pages/model/discussion-and-conclusion.html' with context %}
-
-{{ subpage("Appendices") }}
-{% include 'pages/model/appendices.html' with context %}
+{{ subpage("Appendix") }}
+{% include 'pages/model/appendix.html' with context %}
 
 {% endblock %}
 

@@ -1,10 +1,9 @@
 {% extends "layout/subpage.html" %}
 
 {% block article_content %}
-{{heading("Model")}}
-{{ subheading("Appendix") }}
+{{heading("Appendix")}}
 
-{{ subsubheading("Training Details") }}
+{{ subheading("Training Details") }}
 <div>
     <p>
         The training architecture for the plasmid generation model leverages the Mamba2 state-space model (SSM) to
@@ -12,8 +11,8 @@
         the long-range dependencies in plasmid sequences. This section details the model structure, hyperparameters, and
         training strategy used to generate biologically relevant plasmids.
     </p>
-    <br>
-    {{ subsubsubheading("Model Architecture") }}
+    
+    {{ subheading("Model Architecture") }}
     <table style="width: 100%; margin-bottom: 15px; border: 1px solid #ddd; border-collapse: collapse;">
         <tr style="background-color: #dbcfff;">
             <th style="border: 1px solid #ddd; padding: 8px;">Component</th>
@@ -53,8 +52,8 @@
             <td style="border: 1px solid #ddd; padding: 8px;">Enabled</td>
         </tr>
     </table>
-    <br>
-    {{ subsubsubheading("Hyperparameters") }}
+    
+    {{ subheading("Hyperparameters") }}
     <table style="width: 100%; margin-bottom: 15px; border: 1px solid #ddd; border-collapse: collapse;">
         <tr style="background-color: #dbcfff;">
             <th style="border: 1px solid #ddd; padding: 8px;">Hyperparameter</th>
@@ -89,8 +88,8 @@
             <td style="border: 1px solid #ddd; padding: 8px;">4e-3</td>
         </tr>
     </table>
-    <br>
-    {{ subsubsubheading("Hardware and Training Configuration") }}
+    
+    {{ subheading("Hardware and Training Configuration") }}
     <table style="width: 100%; margin-bottom: 15px; border: 1px solid #ddd; border-collapse: collapse;">
         <tr style="background-color: #dbcfff;">
             <th style="border: 1px solid #ddd; padding: 8px;">Parameter</th>
@@ -128,8 +127,8 @@
             </td>
         </tr>
     </table>
-    <br>
-    {{ subsubsubheading("Sampling and Inference Strategy") }}
+    
+    {{ subheading("Sampling and Inference Strategy") }}
     <p>
         The model uses a combination of advanced sampling techniques to control sequence quality:
     <ul style="margin: 0; padding-left: 20px;">
@@ -142,7 +141,7 @@
 </div>
 
 
-{{ subsubheading("Diffusion Model ") }}
+{{ subheading("Diffusion Model ") }}
 <div>
     <p>
         We initially explored using a diffusion model to facilitate plasmid generation. Diffusion models are a class of
@@ -157,7 +156,7 @@
 </div>
 
 
-{{ subsubheading("Protein Validation Metrics") }}
+{{ subheading("Protein Validation Metrics") }}
 <div>
     <p>
         Below we outlined four metrics based on ESMFold output for assessing accuracy and reliability of predicted
