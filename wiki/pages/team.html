@@ -31,8 +31,8 @@
             <div class="w-screen h-screen fixed top-0 left-0 grid place-items-center" x-show="focused" x-cloak>
               <div
                   @click.away="focused = false"
-                  class="p-4 lg:w-5/12 w-9/12 border-0 border-primary-dark bg-white rounded-lg flex p-8">
-                <div class="w-2/3 mr-4">
+                  class="p-4 max-w-[42rem] m-8 border-0 border-primary-dark bg-white rounded-lg flex p-8">
+                <div>
                   <h2 class="mb-3">{{ member.name }}</h2>
                   {{ member.description }}
                   <div class="flex mt-4 gap-2">
@@ -52,17 +52,6 @@
                       </a>
                     {% endif %}
                   </div>
-                </div>
-                <div class="w-1/3">
-                  {% if member.picture != None %}
-                    <img class = "container-image"
-                      alt="{{ member.name }}"
-                      src="{{ new_cdn(member.picture) }}"
-                      class="w-48 rounded-md"
-                      onerror="createPlaceholder(this)">
-                  {% else %}
-                    <div class="w-52 h-64 bg-gray-200 rounded-md"></div>
-                  {% endif %}
                 </div>
               </div>
             </div>
